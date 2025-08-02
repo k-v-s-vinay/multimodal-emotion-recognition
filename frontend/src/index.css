@@ -1,0 +1,566 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-200 p-6;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .tab-active {
+    @apply border-blue-500 text-blue-600 bg-blue-50;
+  }
+  
+  .tab-inactive {
+    @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300;
+  }
+}
+
+@layer utilities {
+  .emotion-happy {
+    @apply text-green-600 bg-green-50;
+  }
+  
+  .emotion-sad {
+    @apply text-blue-600 bg-blue-50;
+  }
+  
+  .emotion-angry {
+    @apply text-red-600 bg-red-50;
+  }
+  
+  .emotion-fear {
+    @apply text-purple-600 bg-purple-50;
+  }
+  
+  .emotion-surprise {
+    @apply text-yellow-600 bg-yellow-50;
+  }
+  
+  .emotion-disgust {
+    @apply text-green-600 bg-green-50;
+  }
+  
+  .emotion-neutral {
+    @apply text-gray-600 bg-gray-50;
+  }
+} */
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen;
+  }
+  
+  /* Smooth scrolling for better user experience */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* High contrast mode support for accessibility */
+  @media (prefers-contrast: high) {
+    body {
+      @apply bg-white;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-200 p-6 hover:shadow-xl transition-shadow duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2;
+  }
+  
+  .tab-active {
+    @apply border-blue-500 text-blue-600 bg-blue-50;
+  }
+  
+  .tab-inactive {
+    @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300;
+  }
+
+  /* Enhanced Timeline Components */
+  .timeline-segment {
+    @apply relative bg-white border-l-4 border-indigo-500 shadow-sm rounded-r-lg p-4 mb-4 hover:shadow-md transition-all duration-200;
+    animation: slideInRight 0.5s ease-out;
+  }
+
+  .timeline-connector {
+    @apply w-px h-4 bg-gradient-to-b from-gray-300 to-transparent ml-8 my-2;
+  }
+
+  .speaker-badge {
+    @apply bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium inline-flex items-center space-x-1;
+  }
+
+  .emotion-badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium text-white inline-flex items-center space-x-1;
+  }
+
+  .confidence-badge {
+    @apply text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full;
+  }
+
+  /* Duration Progress Bar */
+  .duration-bar {
+    @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+  }
+
+  .duration-fill {
+    @apply h-full rounded-full transition-all duration-1000 ease-out;
+    animation: progressFill 1.5s ease-out;
+  }
+
+  /* Transcript Bubbles */
+  .transcript-bubble {
+    @apply p-3 rounded-lg shadow-sm border-l-4 mb-4 transition-all duration-200 hover:shadow-md;
+  }
+
+  .speaker-1-bubble {
+    @apply bg-blue-50 border-blue-500 ml-0 mr-8;
+  }
+
+  .speaker-2-bubble {
+    @apply bg-green-50 border-green-500 ml-8 mr-0;
+  }
+
+  .speaker-3-bubble {
+    @apply bg-purple-50 border-purple-500 ml-4 mr-4;
+  }
+
+  /* Emotion Distribution Cards */
+  .emotion-card {
+    @apply text-center p-4 rounded-lg transition-all duration-200 hover:scale-105 cursor-pointer;
+  }
+
+  /* Navigation Tabs */
+  .nav-tabs {
+    @apply flex space-x-1 bg-gray-100 p-1 rounded-lg mb-6;
+  }
+
+  .nav-tab {
+    @apply flex items-center space-x-2 px-4 py-2 rounded-md font-medium transition-all duration-200 cursor-pointer;
+  }
+
+  .nav-tab-active {
+    @apply bg-white text-indigo-600 shadow-sm;
+  }
+
+  .nav-tab-inactive {
+    @apply text-gray-600 hover:text-gray-800 hover:bg-gray-50;
+  }
+
+  /* Loading States */
+  .loading-pulse {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  /* Accessibility Focus States */
+  .focus-visible {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  }
+}
+
+@layer utilities {
+  /* Emotion Color Classes */
+  .emotion-happy {
+    @apply text-green-600 bg-green-50 border-green-200;
+  }
+  
+  .emotion-sad {
+    @apply text-blue-600 bg-blue-50 border-blue-200;
+  }
+  
+  .emotion-angry {
+    @apply text-red-600 bg-red-50 border-red-200;
+  }
+  
+  .emotion-fear {
+    @apply text-purple-600 bg-purple-50 border-purple-200;
+  }
+  
+  .emotion-surprise {
+    @apply text-yellow-600 bg-yellow-50 border-yellow-200;
+  }
+  
+  .emotion-disgust {
+    @apply text-orange-600 bg-orange-50 border-orange-200;
+  }
+  
+  .emotion-neutral {
+    @apply text-gray-600 bg-gray-50 border-gray-200;
+  }
+
+  /* Timeline Background Colors */
+  .bg-emotion-happy {
+    @apply bg-green-500;
+  }
+
+  .bg-emotion-sad {
+    @apply bg-blue-500;
+  }
+
+  .bg-emotion-angry {
+    @apply bg-red-500;
+  }
+
+  .bg-emotion-fear {
+    @apply bg-purple-500;
+  }
+
+  .bg-emotion-surprise {
+    @apply bg-yellow-500;
+  }
+
+  .bg-emotion-disgust {
+    @apply bg-orange-500;
+  }
+
+  .bg-emotion-neutral {
+    @apply bg-gray-500;
+  }
+
+  /* Emoji Utilities */
+  .emoji-lg {
+    @apply text-4xl leading-none;
+  }
+
+  .emoji-xl {
+    @apply text-6xl leading-none;
+  }
+
+  .emoji-hover {
+    @apply transition-transform duration-200 hover:scale-110 cursor-pointer;
+  }
+
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.8s ease-out;
+  }
+
+  /* Speaker Color Coding */
+  .speaker-1-color {
+    @apply text-blue-600 bg-blue-100 border-blue-300;
+  }
+
+  .speaker-2-color {
+    @apply text-green-600 bg-green-100 border-green-300;
+  }
+
+  .speaker-3-color {
+    @apply text-purple-600 bg-purple-100 border-purple-300;
+  }
+
+  .speaker-4-color {
+    @apply text-orange-600 bg-orange-100 border-orange-300;
+  }
+
+  /* Accessibility Utilities */
+  .high-contrast {
+    @apply text-black bg-white border-black;
+  }
+
+  .screen-reader-only {
+    @apply sr-only;
+  }
+
+  /* Mobile Responsive Timeline */
+  .timeline-mobile {
+    @apply flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4;
+  }
+
+  .timeline-time-mobile {
+    @apply order-first text-left md:order-none md:text-center;
+  }
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--progress-width, 100%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline-segment {
+    @apply border-l-0 border-t-4 rounded-t-lg rounded-r-xl;
+  }
+
+  .timeline-connector {
+    @apply w-4 h-px bg-gradient-to-r from-gray-300 to-transparent ml-0 my-2;
+  }
+
+  .speaker-badge {
+    @apply text-xs px-2 py-1;
+  }
+
+  .emotion-badge {
+    @apply text-xs px-2 py-1;
+  }
+
+  .nav-tab {
+    @apply px-2 py-1 text-sm;
+  }
+
+  .emoji-lg {
+    @apply text-3xl;
+  }
+
+  .emoji-xl {
+    @apply text-4xl;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    @apply p-4 mx-2;
+  }
+
+  .nav-tabs {
+    @apply flex-wrap space-x-0 space-y-1;
+  }
+
+  .nav-tab {
+    @apply w-full justify-center;
+  }
+
+  .emotion-card {
+    @apply p-2;
+  }
+
+  .transcript-bubble {
+    @apply ml-0 mr-0 p-2;
+  }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .card {
+    @apply bg-gray-800 border-gray-700 text-white;
+  }
+
+  .speaker-badge {
+    @apply bg-indigo-800 text-indigo-200;
+  }
+
+  .timeline-segment {
+    @apply bg-gray-800 border-indigo-400;
+  }
+
+  .transcript-bubble {
+    @apply bg-gray-700 border-opacity-50;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .timeline-segment {
+    @apply shadow-none border-2 border-gray-400;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    @apply hidden;
+  }
+
+  .nav-tabs {
+    @apply hidden;
+  }
+
+  .emoji-hover {
+    @apply transform-none;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-segment {
+    animation: none;
+  }
+
+  .emoji-hover {
+    @apply transition-none;
+  }
+
+  .duration-fill {
+    animation: none;
+  }
+
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-bounce-in {
+    animation: none;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .card {
+    @apply border-2 border-black;
+  }
+
+  .emotion-badge {
+    @apply border border-black;
+  }
+
+  .speaker-badge {
+    @apply border border-black;
+  }
+
+  .timeline-segment {
+    @apply border-l-8 border-black;
+  }
+}
+
+/* Focus Management for Accessibility */
+.focus-trap {
+  @apply outline-none;
+}
+
+.focus-trap:focus-within {
+  @apply ring-2 ring-blue-500 ring-offset-2;
+}
+
+/* Loading States */
+.skeleton {
+  @apply bg-gray-200 animate-pulse rounded;
+}
+
+.skeleton-text {
+  @apply h-4 bg-gray-200 rounded animate-pulse;
+}
+
+.skeleton-circle {
+  @apply w-12 h-12 bg-gray-200 rounded-full animate-pulse;
+}
+
+/* Interactive Elements */
+.clickable {
+  @apply cursor-pointer transition-all duration-200 hover:scale-105 active:scale-95;
+}
+
+.draggable {
+  @apply cursor-move select-none;
+}
+
+/* Status Indicators */
+.status-success {
+  @apply text-green-600 bg-green-100 border-green-300;
+}
+
+.status-warning {
+  @apply text-yellow-600 bg-yellow-100 border-yellow-300;
+}
+
+.status-error {
+  @apply text-red-600 bg-red-100 border-red-300;
+}
+
+.status-info {
+  @apply text-blue-600 bg-blue-100 border-blue-300;
+}
