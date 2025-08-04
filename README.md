@@ -47,7 +47,7 @@
 - FFmpeg (for audio/video processing)
 
 ### 1. Clone Repository
-git clone https://github.com/yourusername/multimodal-emotion-recognition.git
+git clone https://github.com/k-v-s-vinay/multimodal-emotion-recognition.git
 cd multimodal-emotion-recognition
 
 
